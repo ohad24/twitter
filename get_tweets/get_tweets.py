@@ -5,8 +5,11 @@ import os
 
 db = firestore.Client()
 
-docs = db.collection(u'twitter-home-timeline').where(u'user.screen_name', u'==', u'netanyahu').stream()
+users = [u'YinonMagal', u'netanyahu']
 
-for doc in docs:
-    d = doc.to_dict()
-    print(f'{doc.id} => {doc.to_dict().get("text")}')
+for user in users:
+    print(user)
+    docs = db.collection(u'twitter-home-timeline').document(u'users').collection(user).stream()
+    for doc in docs:
+        d = doc.to_dict()
+        print(f'{doc.id} => {doc.to_dict().get("text")}')
