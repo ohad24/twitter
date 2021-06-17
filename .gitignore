@@ -4,3 +4,6 @@ venv
 ape.py
 a.json
 datastore_user_creds.json
+tweets.json
+tweets.txt
+__pycache__
