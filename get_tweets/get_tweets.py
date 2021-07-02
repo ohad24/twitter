@@ -19,7 +19,9 @@ def sensitize(tweet:str) -> str:
 
 def get_tweets() -> list:
     db = firestore.Client()
-    users = [u'YinonMagal', u'netanyahu', 'Riklin10', 'shlomo_karhi', 'bezalelsm', 'Shutup100000', 'TopazLuk', 'itamarbengvir', '@ronitlev12']
+    users = [u'YinonMagal', u'netanyahu', 'Riklin10', 'shlomo_karhi', '@AvishayBenHaim', '@YairNetanyahu',
+                'NavehDromi', 'Sharona_Ozeri', 'ErelSegal', 'dudiamsalem', 'OsnathilaMark', 'GolanMay',
+                'bezalelsm', 'Shutup100000', 'TopazLuk', 'itamarbengvir', '@ronitlev12']
     # users = [u'YinonMagal', u'Riklin10']
     sentences = []
     for user in users:
@@ -41,4 +43,5 @@ if __name__ == '__main__':
     print(len(sentences))
     with open('tweets.txt', 'w') as f:
         # f.write(json.dumps(sentences, indent=4, default=str, ensure_ascii=False))
-        map(lambda i:f.write(i), sentences)
+        # map(lambda i:f.write(i), sentences)
+        f.write("\n".join(sentences))
